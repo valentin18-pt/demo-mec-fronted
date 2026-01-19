@@ -1,3 +1,4 @@
-const API_URL_BASE = "https://nylah-oillike-avelina.ngrok-free.dev/";
+const API_URL_BASE = "https://nylah-oillike-avelina.ngrok-free.dev/api/";
+const API_URL_SANCTUM = "https://nylah-oillike-avelina.ngrok-free.dev";
 
-export default API_URL_BASE;
+export { API_URL_BASE, API_URL_SANCTUM };
