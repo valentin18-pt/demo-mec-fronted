@@ -1,0 +1,28 @@
+.input-group {
+  display: flex;
+  align-items: center;
+  gap:5px
+}
+
+.custom-symbol {
+  background-color: #999999;
+  padding: 8px;
+  color: white;
+  align-items: flex-start; 
+  border-radius: 5px;
+  font-family:sans-serif;
+  font-size: 8px;
+}
+
+.form-control {
+  flex: 1;
+  padding-left: 10px;
+  font-size: 1rem; 
+  display: flex;
+  width: 100%
+}
+
+.form-control:focus {
+  border-color: #80bdff; 
+  outline: none;  
+}

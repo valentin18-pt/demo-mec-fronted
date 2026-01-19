@@ -1,0 +1,70 @@
+/* Container for all pagination elements */
+.pagination-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 8px;
+}
+
+/* Container for the page numbers */
+.page-numbers {
+    display: flex; /* <-- This is the key change */
+    gap: 8px; /* Adds space between number buttons */
+}
+
+/* Base style for all buttons */
+.pagination-button,
+.page-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--azul-grisaceo-claro);
+    color: var(--azul-oscuro);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: none;
+}
+
+.pagination-button:not(.disabled):hover,
+.page-button:not(.selected):not(.ellipsis):hover {
+    background: var(--azul-grisaceo-oscuro);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.page-button.selected {
+    background: var(--degradado-anaranjado);
+    color: #ffffff;
+    cursor: default;
+}
+
+.page-button.selected:hover {
+    background-color: var(--azul-grisaceo-oscuro);
+    transform: none;
+}
+
+.pagination-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #f0f0f0;
+    color: #a0a0a0;
+}
+
+.page-button.ellipsis {
+    background-color: transparent;
+    border: none;
+    cursor: default;
+    color: #888888;
+}
+
+.pagination-button svg {
+    stroke-width: 2.5;
+    color: inherit;
+}

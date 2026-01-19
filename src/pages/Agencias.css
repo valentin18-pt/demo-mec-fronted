@@ -1,0 +1,82 @@
+.filtro-boton {
+  display: flex;
+}
+
+.filtros-contenedor {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.agencias-scope.caja-flujo-container {
+  padding: 20px;
+  background-color: #FAFAFA;
+  min-height: 100vh;
+}
+
+.agencias-scope .agencias-title,
+.agencias-scope h1 {
+  display: inline-block;
+  background: linear-gradient(to right, #e36e15, #ff994c);
+  background: var(--degradado-anaranjado, linear-gradient(to right, #e36e15, #ff994c));
+  color: white;
+  padding: 5px 30px;
+  font-size: 20px;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.agencias-scope .filtros {
+  font-size: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0;
+  padding: 5px 0px 20px 0px;
+  width: 100%;
+}
+
+.agencias-scope .campo-fecha {
+  display: flex;
+  flex-direction: column;
+}
+
+.agencias-scope .campo-fecha label {
+  margin-bottom: 5px;
+  font-weight: normal;
+  color: #676767;
+}
+
+.agencias-scope .campo-fecha input,
+.agencias-scope .campo-fecha select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.agencias-scope .table-container {
+  background-color: white;
+  border-collapse: collapse;
+  overflow-x: auto;
+  width: 100%;
+  margin: 10px 0px;
+  max-height: 600px;
+  overflow-y: auto;
+  display: block;
+}
+
+.agencias-scope .col-zona {
+  min-width: 120px;
+}
+
+.agencias-scope .col-asesor {
+  min-width: 200px;
+}
+
+.agencias-scope .col-direccion {
+  min-width: 200px;
+}

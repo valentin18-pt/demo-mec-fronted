@@ -1,0 +1,58 @@
+.boton-buscar {
+  padding: 12px 24px;
+  border: none; 
+  border-radius: 8px;
+  background-color: #4B4B4B;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.boton-buscar:hover:not(:disabled) {
+  background-color: #3B3B3B;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.boton-buscar:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.boton-buscar:focus {
+  outline: 2px solid #6B7280;
+  outline-offset: 2px;
+}
+
+.boton-buscar:disabled {
+  background-color: #B0B0B0;
+  color: #D3D3D3;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.boton-buscar:disabled:hover {
+  background-color: #B0B0B0;
+  transform: none;
+  box-shadow: none;
+}
+
+.boton-buscar svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.boton-buscar span {
+  line-height: 1;
+}

@@ -1,0 +1,26 @@
+.boton-agregar {
+  background-color: #222020;
+  color: #f0e7e7;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  gap: 4px;
+}
+
+.boton-agregar:hover {
+  background-color: #000000;
+}
+
+.boton-agregar svg {
+  width: 16px;
+  height: 16px;
+}
+
+.boton-agregar span {
+  font-size: 12px; 
+}

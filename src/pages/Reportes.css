@@ -1,0 +1,125 @@
+.filter-colum2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1200px; 
+    margin: auto;
+    padding: 30px;
+    background-color: #ffffff; 
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.select:focus {
+    border-color: #4B4B4B;
+    background-color: #ffffff;
+    outline: none;
+}
+
+.buscar {
+    padding: 12px 24px;
+    border: none; 
+    border-radius: 8px;
+    background-color: #4B4B4B;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    width: 100%;
+    margin-top: 10px; 
+    text-align: center; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.buscar:hover {
+    background-color: #3B3B3B;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.buscar:disabled {
+    background-color: #B0B0B0; /* Un color gris claro para indicar que está deshabilitado */
+    color: #D3D3D3; /* Un color de texto más suave para el estado deshabilitado */
+    cursor: not-allowed; /* Cambia el cursor para mostrar que no se puede interactuar con el botón */
+    box-shadow: none; /* Quitar la sombra */
+    transform: none; /* Eliminar cualquier transformación de movimiento */
+}
+
+.buscar:disabled:hover {
+    background-color: #B0B0B0; /* Mantener el mismo color de fondo cuando esté deshabilitado */
+    transform: none; /* Sin transformación de hover */
+    box-shadow: none; /* Sin sombra cuando está deshabilitado */
+}
+
+.tablas h2 {
+    background-color: #d3d3d3; 
+    color: #333; 
+    padding: 10px;
+    border-radius: 5px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
+    font-family: Arial, sans-serif; /* Fuente */
+    text-align: center; 
+    margin-top: 20px;
+}
+
+.reportes .table {
+    table-layout: fixed; 
+    width: 100%; 
+}
+
+.reportes .table  th,
+.reportes .table  td {
+    width: 100%;
+}
+
+.dashboard-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+.barchart-container {
+    flex-basis: 60%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    height: auto;
+    border: 2px solid #ececec;
+    border-radius: 10px;
+    padding: 50px 5px;
+    margin: 15px 0;
+}
+
+.donnutchart-container {
+    flex-basis: 25%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    height: auto;
+    border: 2px solid #ececec;
+    border-radius: 10px;
+    padding: 10px 5px;
+    margin: 15px 0;
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .barchart-container,
+    .donnutchart-container {
+        width: 100%;
+    }
+
+    .barchart-container {
+        padding: 30px 10px;
+    }
+
+    .donnutchart-container {
+        padding: 20px 10px;
+    }
+}

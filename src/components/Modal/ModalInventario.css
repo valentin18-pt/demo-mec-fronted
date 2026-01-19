@@ -1,0 +1,19 @@
+.symbol-move-up-2px {
+  transform: translateY(-5px);
+}
+
+.radio-group-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.radio-option-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.radio-option-item input[type="radio"] {
+  margin: 0;
+}

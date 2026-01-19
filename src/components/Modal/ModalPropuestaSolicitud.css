@@ -1,0 +1,25 @@
+.tab-circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #d3d3d3; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tab-circle.active {
+    background-color: #1a005b;
+}
+
+.seccion-modal {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.no-solicitudes {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    padding: 40px;
+}

@@ -1,0 +1,32 @@
+.boton-excel {
+  background-color: #28a745;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  gap: 4px;
+}
+
+.boton-excel:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.boton-excel:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.boton-excel svg {
+  width: 16px;
+  height: 16px;
+}
+
+.boton-excel span {
+  font-size: 12px;
+}

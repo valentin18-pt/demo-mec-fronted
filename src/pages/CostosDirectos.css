@@ -1,0 +1,44 @@
+.table-costos-directos {
+  overflow-x: auto;
+}
+
+.table-costos-directos .table {
+  background-color: #ffffff;
+}
+
+.table-costos-directos .table thead th {
+  background-color: #0549a7;
+  color: #ffffff;
+  vertical-align: middle;
+}
+
+.table-costos-directos .table-bordered th,
+.table-costos-directos .table-bordered td {
+  border: 1px solid #212529;
+  padding: 0.5rem 0.75rem;
+  vertical-align: middle;
+}
+
+.table-costos-directos .highlighted {
+  background-color: #ffd8d8;
+}
+
+.totales-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.total-box {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px 20px;
+    text-align: center;
+    flex: 1;
+    min-width: 180px;
+    font-size: 0.85rem;
+}

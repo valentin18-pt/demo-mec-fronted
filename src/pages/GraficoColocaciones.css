@@ -1,0 +1,159 @@
+.graficos-colocaciones {
+    padding: 12px 0;
+    max-width: 100%;
+    margin: 0;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+.titulo-principal {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.grafico-container {
+    background-color: white;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.grafico-titulo {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #111827;
+    margin-top: 0;
+}
+
+.barras-container {
+    display: flex;
+    height: 24px;
+    width: 100%;
+}
+
+.barra-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: filter 0.2s ease;
+    border-right: 1px solid #f3f4f6;
+}
+
+.barra-item:last-child {
+    border-right: none;
+}
+
+.barra-texto {
+    color: black;
+    font-size: 9px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+}
+
+.barra-alcance {
+    background-color: #e5e7eb;
+    overflow: hidden;
+}
+
+.barra-progreso {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transition: width 0.4s ease-in-out;
+}
+
+.barra-actual-container {
+    position: relative;
+}
+
+.barra-actual {
+    height: 24px;
+    background-color: #e5e7eb;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+.barra-actual-progreso {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #4DC24D;
+    transition: width 0.4s ease-in-out;
+    display: flex;
+}
+
+.barra-actual-meta {
+    position: relative;
+    z-index: 2;
+    color: #000000;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.barra-actual-info {
+    position: relative;
+    margin-top: 4px;
+    height: 18px;
+}
+
+.barra-actual-texto {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    font-size: 11px;
+    font-weight: 400;
+    transform: translateX(-50%);
+}
+
+.segmento {
+    height: 100%;
+    cursor: pointer;
+    border-right: 2px solid rgba(255, 255, 255, 0.5);
+    transition: filter 0.2s ease;
+}
+
+.segmento:hover {
+    filter: brightness(1.1);
+}
+
+.segmento:last-child {
+    border-right: none;
+}
+
+.tooltip {
+    position: fixed;
+    background-color: white;
+    color: #374151;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 10px;
+    z-index: 1000;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+.tooltip div:first-child {
+    font-weight: 400;
+    margin-bottom: 3px;
+}

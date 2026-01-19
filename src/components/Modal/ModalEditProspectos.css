@@ -1,0 +1,174 @@
+.modal {
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start; 
+    z-index: 1000;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: block;
+}
+
+.modal-dialog {
+    width: 100%; /* Ancho del modal */
+    max-width: 800px; /* Ancho máximo */
+    min-width: 600px; /* Ancho mínimo */
+}
+
+.modal-content {
+    height: auto;
+    max-height: 90vh; /* Altura máxima del modal */
+    max-width: 90vw;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #f8f9fa;
+}
+
+  
+  .close-btn {
+    margin-left: auto;                  /* Empuja el botón hacia la derecha */
+    background: transparent;            /* Fondo transparente */
+    color: white;                       /* Color de la "X" blanco */
+    font-size: 16px;                     /* Aumento del tamaño para que se vea más grande */
+    font-weight: bold;                   /* Usamos negrita para dar más fuerza */
+    cursor: pointer;                    /* Aparece como un cursor de mano */
+    border: none;                       /* Sin borde */
+    outline: none;                      /* Sin contorno */
+    transition: color 0.3s, transform 0.2s; /* Transición suave para el hover */
+    font-family: cursive;     /* Usamos una fuente decorativa */
+}
+
+.titulo h1 {
+    padding: 18px;                /* Aumentar el tamaño del texto */
+    font-weight: 600;                   /* Peso de la fuente para mayor énfasis */
+    margin: 0;                          /* Eliminar márgenes por defecto */
+    color: white;
+}
+
+.message {
+    margin-top: 20px; /* Espacio arriba del botón */
+    justify-content: flex-start;
+}
+
+.row-container {
+  display: flex;
+  align-items: center; /* Vertically center the items */
+  justify-content: space-between; /* Space out the toast and button */
+  gap: 10px; /* Adjust gap between the elements as needed */
+}
+
+
+.fila{
+    display: flex;
+    flex-direction: column; 
+    margin: 20px;
+}
+
+.fila input, .fila select {
+  margin-top: 5px;
+}
+
+.fixed-width {
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    white-space: normal; 
+}
+
+
+.celular-checkbox {
+    width: 20px;  /* Mantén el tamaño reducido del checkbox */
+    height: 20px;  /* Asegura que la altura sea la misma que el width */
+    cursor: pointer;
+    border-radius: 3px;  /* Bordes más redondeados */
+    appearance: none;  /* Elimina el estilo predeterminado */
+    background-color: white;  /* Fondo blanco */
+    border: 2px solid #000;  /* Borde negro */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    display: inline-block;  /* Asegura que sea un bloque en línea */
+    position: relative;  /* Necesario para posicionar el "check" */
+    margin-right: 8px;  /* Agrega un margen derecho pequeño para espacio entre checkbox y botón */
+    vertical-align: middle;  /* Alineación vertical en medio de otros elementos */
+}
+  
+  /* Estilo cuando el checkbox está marcado */
+  .celular-checkbox:checked {
+    background-color: #000; /* Fondo negro cuando está marcado */
+    border-color: #000; /* Borde negro */
+  }
+  
+  /* El check dentro del checkbox */
+  .celular-checkbox:checked::after {
+    content: "\2713";  /* El símbolo de check (✓) */
+    font-size: 12px;  /* Reducimos el tamaño del check */
+    color: white;  /* El color del check es blanco */
+    position: absolute;
+    top: 0;
+    left: 2px;  /* Ajustamos la posición del check */
+    font-weight: bold;
+  }
+  
+  /* Opcional: Estilo cuando el checkbox está desmarcado */
+  .celular-checkbox:not(:checked)::after {
+    content: "";  /* Sin contenido cuando no está marcado */
+  }
+  
+  .celular-actualizar-btn {
+    padding: 0 10px;  /* Ajustamos el padding solo en los laterales */
+    font-size: 12px;  /* Reducimos el tamaño de la fuente */
+    background-color: #000;  /* Fondo negro */
+    color: white;  /* Texto blanco */
+    border: none;
+    border-radius: 3px;  /* Bordes más redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 0;  /* Elimina cualquier margen adicional */
+    height: 20px;  /* Igualamos la altura del botón con el checkbox */
+    line-height: 20px;  /* Alineamos el texto verticalmente en el centro del botón */
+    display: inline-flex;  /* Usamos flexbox para alinear el contenido de forma eficiente */
+    justify-content: center;  /* Centra el contenido horizontalmente */
+    align-items: center;  /* Centra el contenido verticalmente */
+    text-align: center;  /* Asegura que el texto esté alineado al centro */
+}
+  
+  /* Estilo cuando el ratón pasa sobre el botón */
+  .celular-actualizar-btn:hover {
+    background-color: #444; /* Fondo gris oscuro cuando está en hover */
+  }
+  
+  /* Estilo para el botón deshabilitado */
+  .celular-actualizar-btn:disabled {
+    background-color: #cfcece;  /* Fondo gris cuando está deshabilitado */
+    cursor: not-allowed;
+    transform: none; /* Desactivar el efecto de elevación */
+  }
+
+  .audio-wrapper {
+    width: 100%; /* El contenedor ocupa el 100% del ancho de la celda */
+    max-width: 100%; /* Asegura que no se expanda más allá del 100% del ancho de la celda */
+    text-align: center; /* Centra el reproductor dentro del contenedor */
+    display: flex; /* Usa flexbox para centrar el audio */
+    justify-content: center; /* Centra el reproductor de audio horizontalmente */
+}
+
+.file-format-info {
+    font-size: 8px;
+    color: #555;  /* Color gris para el texto */
+    font-family: Arial, sans-serif;
+}
+  
+.recordatorio-input small {
+    display: block;
+    margin-top: 5px;
+    font-size: 10px;
+}

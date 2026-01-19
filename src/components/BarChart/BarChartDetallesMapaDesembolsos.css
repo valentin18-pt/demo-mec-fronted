@@ -1,0 +1,79 @@
+.mapa-tooltip {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    min-width: 160px;
+}
+
+.mapa-tooltip-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.mapa-tooltip-divider {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 8px;
+}
+
+.mapa-tooltip-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.mapa-tooltip-item:last-child {
+    margin-bottom: 0;
+}
+
+.mapa-tooltip-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mapa-tooltip-color-box {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.mapa-tooltip-value {
+    font-weight: 600;
+    margin-left: 12px;
+}
+
+.mapa-legend-wrapper-horizontal {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 110px;
+}
+
+.mapa-legend-horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    font-size: 12px;
+}
+
+.mapa-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mapa-legend-color-box {
+    width: 12px;
+    height: 12px;
+}
+
+.chart-title-mapa {
+    text-align: center; 
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}

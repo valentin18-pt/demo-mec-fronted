@@ -1,0 +1,33 @@
+.insert-detalle-abc {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.detalle-abc-prioridad-1 {
+    background-color: #FFCC99; 
+}
+
+.detalle-abc-prioridad-2 {
+    background-color: #ffff99; 
+}
+
+.col-sueldo, .col-bienes-servicios,.col-otro-costo {
+    min-width: 100px;
+    max-width: 100px;
+}
+
+.col-costo-total {
+    min-width: 120px;
+    max-width: 120px;
+}
+
+.registrar-detalleabc-pasado {
+    background-color: #ef812d;
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-right: 1rem
+}

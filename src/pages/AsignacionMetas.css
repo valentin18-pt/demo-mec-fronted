@@ -1,0 +1,138 @@
+.asignacion-metas {
+    display: grid;
+    gap: 10px;
+    margin: auto;
+    padding: 30px;
+    background-color: #ffffff; 
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+/* .accordion-list {
+    width: 100%;
+    margin: 20px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .accordion {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .accordion th, td{
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .accordion-body{
+    font-size: 12px;
+  }
+  
+  .accordion-header {
+    background-color: #f7f7f7;
+    padding: 12px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #444;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .accordion-header:hover {
+    background-color: #ff7a00; 
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .accordion-header span.meta {
+    font-weight: 500;
+    color: #666;
+  }
+  
+  .accordion-body {
+    padding: 15px 20px;
+    background-color: #fafafa;
+    border-top: 1px solid #ccc;
+  }
+   */
+  .item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  }
+  
+  .item-row:hover {
+    background-color: #ffeed6;
+  }
+  
+  .item-row p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .button-assign {
+    background-color: #ff7a00;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-assign:hover {
+    background-color: #e66b00;
+  }
+  
+  .asignacion-metas h3 {
+    font-weight: 700;
+    font-size: 20px;
+    color: #ff7a00; /* naranja corporativo */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  input[type="month"] {
+    padding: 8px 12px;
+    border: 1.5px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    outline-color: #ff7a00;
+    transition: border-color 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .asignacion-metas input[type="month"]:focus {
+    border-color: #ff7a00;
+    box-shadow: 0 0 5px #ff7a00a1;
+  }
+  .asignacion-metas label {
+    font-weight: 600;
+    color: #555555; /* gris oscuro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+
+  .button-assign:disabled {
+    background-color: #e0e0e0;
+    color: #9e9e9e;         
+    cursor: not-allowed;
+  }

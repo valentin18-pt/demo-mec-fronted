@@ -1,0 +1,44 @@
+/* .tabla-comision-desembolsos table tbody td:nth-child(2),
+.tabla-comision-desembolsos table thead th:nth-child(2) {
+    min-width: 100px;
+    max-width: 100px;
+    white-space: nowrap;
+}
+
+.tabla-comision-desembolsos table tbody td:nth-child(3),
+.tabla-comision-desembolsos table thead th:nth-child(3) {
+    min-width: 100px;
+    max-width: 100px;
+    white-space: nowrap;
+}
+
+.tabla-comision-desembolsos table tbody td:nth-child(4),
+.tabla-comision-desembolsos table thead th:nth-child(4) {
+    min-width: 150px;
+    max-width: 150px;
+    white-space: nowrap;
+}
+
+.tabla-comision-desembolsos table tbody td:nth-child(6),
+.tabla-comision-desembolsos table thead th:nth-child(6) {
+    min-width: 200px;
+    max-width: 250px;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.tabla-comision-desembolsos table tbody td:nth-child(7),
+.tabla-comision-desembolsos table thead th:nth-child(7) {
+    min-width: 200px;
+    max-width: 250px;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.tabla-comision-desembolsos table tbody td:nth-child(8),
+.tabla-comision-desembolsos table thead th:nth-child(8) {
+    min-width: 200px;
+    max-width: 250px;
+    white-space: normal;
+    word-wrap: break-word;
+} */

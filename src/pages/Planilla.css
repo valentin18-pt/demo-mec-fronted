@@ -1,0 +1,43 @@
+.th-planilla-resumen {
+    color: white;
+    border: 1px solid var(--gris-claro);
+}
+
+.table-planilla-resumen td {
+    color: black;
+}
+
+.accordion-header-ver-detalles {
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;     
+  width: 100%;   
+  padding: 0.5rem 1rem;
+  gap: 8px;
+  color: var(--azul-oscuro);
+  border: 2px transparent;
+}
+
+.accordion-ver-detalles {
+  font-size: 10px;
+}
+
+.accordion-ver-detalles p {
+  font-size: 8px;
+}
+
+.accordion-ver-detalles table th,td {
+  font-size: 9px;
+}
+
+.table-validacion td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+    background-color: rgb(251, 251, 251);
+    font-weight: bold;
+}
+
+.table-validacion th {
+    padding: 7px !important;
+}

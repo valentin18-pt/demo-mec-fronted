@@ -1,0 +1,55 @@
+.tipo-row.ingreso {
+    background-color: #E4F0F9;
+}
+
+.tipo-row.ingreso:hover {
+    background-color: #C8DFF0;
+}
+
+.categoria-row.ingreso {
+    background-color: #F5FAFF;
+}
+
+.categoria-row.ingreso:hover {
+    background-color: #D9ECFF;
+}
+
+.tipo-row.egreso {
+    background-color: #FEF0E0;
+}
+
+.tipo-row.egreso:hover {
+    background-color: #FDDAB8;
+}
+
+.categoria-row.egreso {
+    background-color: #FFF9F3;
+}
+
+.categoria-row.egreso:hover {
+    background-color: #FFECD9;
+}
+
+.utilidades-antes-impuestos {
+    background-color: #FFFACD;
+}
+
+.utilidades-antes-impuestos:hover {
+    background-color: #FFE599;
+}
+
+.utilidades-final-row.positivo {
+    background-color: #90e89c;
+}
+
+.utilidades-final-row.positivo:hover {
+    background-color: #6FD67E;
+}
+
+.utilidades-final-row.negativo {
+    background-color: #ffb3b3;
+}
+
+.utilidades-final-row.negativo:hover {
+    background-color: #FF8A8A;
+}

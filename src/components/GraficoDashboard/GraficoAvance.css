@@ -1,0 +1,237 @@
+.grafico-avance-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 50;
+    padding: 0.5rem;
+    border-radius: 9999px;
+    color: #6b7280;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.close-button:hover {
+    background-color: #e5e7eb;
+}
+
+.close-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.dashboard-main-content {
+    flex-grow: 1;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0;
+}
+
+.main-grid {
+    gap: 1.5rem;
+    display: grid;
+    flex-grow: 1;
+    min-height: 0;
+}
+
+@media (min-width: 1024px) {
+    .main-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1280px) {
+    .main-grid {
+        grid-template-columns: 0.9fr 1.1fr;
+    }
+}
+
+.chart-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    min-height: 0;
+    border: 1px solid #cccccc;
+}
+
+.chart-title {
+    text-align: center;
+    font-weight: 700;
+    color: #1f2937;
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.filter-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+}
+
+.filter-row,
+.filter-group-top {
+    display: flex;
+    width: 100%;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+
+    .filter-row,
+    .filter-group-top {
+        flex-wrap: nowrap;
+    }
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-grow: 1;
+    min-width: 150px;
+}
+
+.filter-label {
+    color: #374151;
+    font-size: 0.875rem;
+    white-space: nowrap;
+}
+
+.filter-input {
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    color: #1f2937;
+    width: 100%;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    height: 2.375rem;
+    box-sizing: border-box;
+    padding: 0.5rem;
+}
+
+.filter-input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.data-type-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.data-type-button {
+    flex-grow: 1;
+    height: 2.375rem;
+    white-space: nowrap;
+}
+
+.filter-button-full-width {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    height: 2.375rem;
+}
+
+.chart-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 0;
+}
+
+.loading-effect {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.empty-state-container {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #6b7280;
+}
+
+.empty-state-icon {
+    width: 3rem;
+    height: 3rem;
+    color: #9ca3af;
+    margin-bottom: 1rem;
+}
+
+.empty-state-text {
+    font-size: 0.875rem;
+}
+
+.tremor-tooltip {
+    background-color: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    color: #374151 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.donut-chart-container-avance {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.donut-chart-container-avance .tremor-DonutChart {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.recharts-tooltip-wrapper {
+  z-index: 9999 !important; 
+  pointer-events: auto !important; 
+  background-color: #ffffff !important;
+  border: 1px solid #d1d5db !important;
+}

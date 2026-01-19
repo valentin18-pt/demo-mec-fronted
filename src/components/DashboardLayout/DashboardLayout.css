@@ -1,0 +1,222 @@
+.dashboard-container {
+    display: flex;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding-left: 300px;
+    transition: padding-left 0.3s ease;
+}
+
+.main-content.collapsed {
+    padding-left: 70px;
+}
+
+.inner-content {
+    padding: 20px;
+    background-color: #FAFAFA;
+    min-height: 100vh;
+}
+
+.inner-content h1 {
+    display: inline-block;
+    background: var(--degradado-anaranjado);
+    color: white;
+    padding: 5px 30px;
+}
+
+.inner-content .filtros {
+    font-size: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 0px;
+    width: 100%;
+}
+
+.inner-content input[type="text"],
+.inner-content input[type="number"],
+.inner-content input[type="date"],
+.inner-content input[type="month"],
+.inner-content select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 12px;
+    transition: border-color 0.3s;
+}
+
+.inner-content input[type="checkbox"]  {
+    padding: 5px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 12px;
+    transition: border-color 0.3s;
+}
+
+.inner-content input[type="checkbox"]:disabled:not(:checked) {
+    cursor: not-allowed;
+    opacity: 0.6;
+    filter: grayscale(100%);
+    border: 1px solid #c1c0c0; 
+    background-color: #e3e3e3;
+}
+
+.inner-content input[type="checkbox"]:disabled:checked {
+    cursor: not-allowed;
+    opacity: 0.6;
+    filter: grayscale(100%);
+}
+
+.inner-content .filtros select:focus {
+    border-color: black;
+    color: black;
+}
+
+.search_select {
+    font-size: 11px;
+    transition: border 0.3s;
+    flex-grow: 1;
+    background-color: white;
+}
+  
+.search_select:hover {
+    background-color: var(--gris-plata);
+}
+
+.encabezado {
+    display: flex; /* <-- Habilita Flexbox */
+    justify-content: space-between; /* <-- Coloca los elementos a los extremos */
+    align-items: center; /* <-- Centra los elementos verticalmente */
+}
+
+.encabezado button {
+    background-color: #000000; /* Un color primario, por ejemplo, azul */
+    color: white; /* Texto blanco para contrastar */
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease; 
+    font-size: 10px;
+}
+
+.encabezado button:hover {
+    background-color: #0056b3; /* Un azul más oscuro en hover */
+}
+
+.botones-fila {
+    display: flex;
+    justify-content: center; /* Alinea los botones al centro de la fila */
+}
+
+/* Estilos base para todos los botones de acción */
+.acciones .btn {
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    padding: 0;
+    margin: 0 5px; /* Este margen ahora es redundante si usas gap */
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para el botón del ojo (naranja) */
+.boton_ojo {
+    border: 1px solid #f8a73a;
+}
+
+.boton_ojo:hover {
+    background-color: #f8a73a;
+    box-shadow: 0 0 5px rgba(248, 167, 58, 0.5);
+}
+
+/* Estilo para el botón del documento */
+.boton_documento {
+    border: 1px solid #28a745; 
+}
+
+/* Estilo para el botón del documento cuando está deshabilitado (rojo) */
+.boton_documento[disabled] {
+    border: 1px solid #dc3545;
+    background-color: transparent !important;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Efecto hover para el botón de documento cuando NO está deshabilitado (verde) */
+.boton_documento:not([disabled]):hover {
+    background-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+/* Estilo para el botón del documento (color verde si está activo) */
+.boton-documento {
+    border: 1px solid #28a745;
+}
+
+.boton-documento:hover {
+    background-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+/* Estilo para el botón del documento cuando está deshabilitado (color rojo) */
+.boton-documento[disabled] {
+    border: 1px solid #dc3545;
+    background-color: transparent !important;
+    cursor: not-allowed;
+}
+
+/* Al pasar el mouse por el botón deshabilitado, el icono no cambia de color */
+.boton-documento[disabled]:hover {
+    background-color: transparent !important;
+    box-shadow: none;
+}
+
+.contenedor-filtros-adicionales{
+    margin-bottom: 10px;
+}
+
+.filtros-adicionales {
+    font-size: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+    width: 100%;
+}
+
+.filtros-adicionales label {
+  display: block;
+  font-weight: 500;
+  color: #4a5568;
+  margin-bottom: 0.25rem;
+  font-size: 11px;
+}
+
+.filtros-adicionales input,
+.filtros-adicionales SearchSelect {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 11px;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.filtros-adicionales input:focus,
+.filtros-adicionales SearchSelect:focus {
+  outline: none;
+  border-color: #2b6cb0;
+  box-shadow: 0 0 0 1px #2b6cb0;
+}
+

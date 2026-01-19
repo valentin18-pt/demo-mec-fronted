@@ -1,0 +1,10 @@
+.tabla-detalle-costos-directos {
+    background-color: white;
+}
+.tabla-detalle-costos-directos tbody tr td {
+    background-color: white;
+}
+
+.tabla-detalle-costos-directos tbody tr td {
+    border: 1px solid #000000;
+}

@@ -1,0 +1,15 @@
+.check_asignacion {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.check_asignacion input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #007bff;
+}
+
+.check_asignacion input[type="checkbox"]:hover {
+  transform: scale(1.1);
+}

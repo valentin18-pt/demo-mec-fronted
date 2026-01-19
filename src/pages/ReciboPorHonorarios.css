@@ -1,0 +1,51 @@
+.monto-info-paleta {
+    font-weight: bold;
+    color: #17a2b8; /* Azul claro o el tono que prefieras */
+    background-color: #f8f9fa; /* Gris muy claro */
+    border: 1px solid #ced4da; /* Gris medio para el borde */
+    border-left: 5px solid #fd7e14; /* Naranja en un borde lateral para destacar */
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mensaje-no-planilla {
+    font-style: italic;
+    color: #6c757d; /* Un gris neutro */
+    background-color: #e9ecef; /* Un fondo gris claro */
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+    border: 1px dashed #ced4da; /* Borde punteado para un toque visual distinto */
+}
+
+.cargar-recibo-label {
+    background-color: #fd7e14; /* Naranja */
+    color: white; /* Texto blanco */
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cargar-recibo-label:hover {
+    background-color: #e0660f; /* Naranja un poco más oscuro al pasar el cursor */
+}
+
+.guardar-recibo-btn {
+    background-color: #28a745; /* Un verde para simbolizar "guardar" */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.guardar-recibo-btn:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el cursor */
+}

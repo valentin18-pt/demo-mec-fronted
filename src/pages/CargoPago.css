@@ -1,0 +1,17 @@
+.cargo-pago-module .table-container table thead th:nth-child(2),
+.cargo-pago-module .table-container table tbody td:nth-child(2) {
+    min-width: 250px;
+    max-width: 300px;
+}
+
+.cargo-pago-module .table-container table thead th:nth-child(4),
+.cargo-pago-module .table-container table tbody td:nth-child(4) {
+    min-width: 200px;
+    max-width: 230px;
+}
+
+.cargo-pago-module .table-container table thead th:nth-child(5),
+.cargo-pago-module .table-container table tbody td:nth-child(5) {
+    min-width: 200px;
+    max-width: 230px;
+}

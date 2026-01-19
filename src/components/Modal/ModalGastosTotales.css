@@ -1,0 +1,17 @@
+.saldo-negativo {
+  color: #dc3545; 
+  font-weight: bold;
+}
+
+.saldo-positivo {
+  color: #28a745 ;
+}
+
+.monto-negativo {
+  color: #dc3545 ; 
+  font-weight: bold;
+}
+
+.monto-positivo {
+  color: #28a745; 
+}

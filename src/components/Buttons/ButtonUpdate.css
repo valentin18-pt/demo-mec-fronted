@@ -1,0 +1,31 @@
+.boton-actualizar {
+  background-color: #25568a;
+  color: #f0e7e7;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+}
+
+.boton-actualizar:hover {
+  background-color: #204b79;
+}
+
+.boton-actualizar:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.boton-actualizar svg {
+  width: 16px;
+  height: 16px;
+}

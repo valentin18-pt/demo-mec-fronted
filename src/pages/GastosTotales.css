@@ -1,0 +1,55 @@
+.controls-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px 0;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.saldo-inicial-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+.saldo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.saldo-inicial-section {
+    flex: none;
+    width: fit-content;
+    background: #ffffff;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.saldo-edit {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+}
+
+.nuevo-gasto-section {
+    display: flex;
+    align-items: center;
+}
+
+.col-proveedor, .col-descripcion, .col-actividad {
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.col-monto, .col-saldo {
+    min-width: 120px;
+    max-width: 120px;
+}
+
+.monto-positivo, .saldo-positivo {
+    color: #279942; 
+    font-weight: bold;
+}

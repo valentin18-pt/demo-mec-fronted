@@ -1,0 +1,111 @@
+.sidebar {
+  width: 300px;
+  height: 100vh;
+  transition: width 0.3s ease;
+  background: url('../../img/sidebar_fondo.webp') no-repeat center center;
+  background-size: cover;
+  overflow-x: hidden;
+  position: fixed;
+  padding: 50px 30px 10px 30px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.sidebar.collapsed {
+    width: 70px;
+	padding: 20px 5px;
+}
+
+.sidebar.collapsed .sidebar-button-link {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar.collapsed .sidebar-user p,
+.sidebar.collapsed .paginas-externas,
+.sidebar.collapsed .navlinks li a span {
+    display: none;
+}
+
+.sidebar-toggle-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+	color: white;
+}
+
+.sidebar-encabezado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.paginas-externas{
+	gap:60px;
+	margin: 15px 0px 10px 0px;
+}
+
+.sidebar-encabezado p {
+	font-weight: 700;
+	font-size: 18px;
+	margin: 35px 0px 15px 0px;
+	color: white;
+}
+
+.sidebar-encabezado button {
+    background-color: var(--azul-grisaceo-claro);
+	border-radius: 10px;
+	padding: 3px 17px;
+    color: var(--gris-oscuro);
+	font-size: 14px;
+	font-weight: 300;
+}
+
+.sidebar-encabezado button:hover {
+  background: var(--degradado-anaranjado); 
+  color: white;
+}
+
+.sidebar-button-link {
+  display: block;
+  width: 100%;   
+  background-color: transparent;
+  color: var(--gris-claro);
+  padding: 7px 20px;
+  border: 2px, solid, white;
+  border-radius: 13px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 300;
+  margin: 12px 0;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  color: white;
+}
+
+
+.sidebar-button-link:hover {
+  background: var(--degradado-anaranjado);
+}
+
+.sidebar-button-link.active {
+  background-color: var(--anaranjado-oscuro);
+  border-color: var(--anaranjado-oscuro);
+  cursor: default;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+  border-radius: 10px;
+}
+
+.sidebar.collapsed .navlink {
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-links {
+	padding-top: 10px;
+}

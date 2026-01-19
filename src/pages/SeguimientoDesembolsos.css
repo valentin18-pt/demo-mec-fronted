@@ -1,0 +1,15 @@
+.estado-seguimiento-1 {
+    background-color: #cdfacd;
+}
+
+.estado-seguimiento-2 {
+    background-color: #ffeeb1;
+}
+
+.table-container tbody tr.estado-seguimiento-1:hover {
+    background-color: #a8e6a8;
+}
+
+.table-container tbody tr.estado-seguimiento-2:hover {
+    background-color: #ffe699;
+}

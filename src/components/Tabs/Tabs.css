@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+.tabs {
+    margin: 20px 0px 0px 0px;
+}
+
+.tabs-titulo {
+    font-family: 'Montserrat', sans-serif;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 8px;
+    color: #495057;
+    font-size: 12px;
+    font-weight: bold;
+    border-bottom: 3px solid transparent; 
+    transition: all 0.3s ease;
+}
+
+/* Style for the Bright Orange Tab */
+.tabs-naranja {
+    background-color: #FF8C00;
+    color: white;
+}
+
+/* Style for the Dark Blue Tab */
+.tabs-azul-oscuro {
+    background-color: #1E90FF;
+    color: white;
+}
+
+/* Style for the Light Gray Tab */
+.tabs-gris-claro {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* Style for the Midnight Blue Tab */
+.tabs-azul-medianoche {
+    background-color: #2F4F4F;
+    color: white;
+}
+
+/* Style for the Graphite Gray Tab */
+.tabs-gris-grafito {
+    background-color: #505050;
+    color: white;
+}
+
+/* Contenedor de los paneles con scroll */
+.tabs-cuerpo-container {
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 0 0 8px 8px;
+    position: relative;
+}
+
+/* Estilo para la barra de scroll */
+.tabs-cuerpo-container::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.tabs-cuerpo-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.tabs-cuerpo-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.tabs-cuerpo-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.tabs-cuerpo {
+    background-color: transparent !important;
+    margin: 0px !important;
+}
+
+/* Hacer que el thead completo sea sticky */
+.tabs-cuerpo thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.tabs-cuerpo th {
+    padding: 10px;
+}
+
+.tabs-cuerpo tbody td {
+    text-align: center;     
+    vertical-align: middle;  
+    padding: 8px;
+}
+
+.tabs-cuerpo tr:first-of-type th:nth-child(-n+2) {
+    background-color: #6c757d;
+    color: #e6e6e6;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Estilo para el resto de las columnas, a partir de la tercera */
+.tabs-cuerpo.tabs-naranja th {
+    background-color: #FF8C00;
+    color: white;
+}
+
+.tabs-cuerpo.tabs-azul-oscuro th {
+    background-color: #1E90FF;
+    color: white;
+}
+
+.tabs-cuerpo.tabs-gris-claro th {
+    background-color: #6c757d;
+    color: white;
+}
+
+.tabs-cuerpo.tabs-azul-medianoche th {
+    background-color: #2F4F4F;
+    color: white;
+}
+
+.tabs-cuerpo.tabs-gris-grafito th {
+    background-color: #505050;
+    color: white;
+}
+
+/* Asegurar que las tablas se vean bien dentro del scroll */
+.tabs-cuerpo table {
+    width: 100%;
+    margin: 0;
+}

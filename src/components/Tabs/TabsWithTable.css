@@ -1,0 +1,129 @@
+.custom-tabs-container {
+  margin-bottom: 0;
+}
+
+.tabs-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 0;
+}
+
+.custom-tabs-list {
+  display: inline-flex;
+  align-items: stretch;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+  gap: 0;
+  margin-bottom: 0;
+}
+
+.custom-tab-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 8px 24px;
+  font-size: 13px;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  border: 1px solid #adadad;
+  background-color: #F5F5F5;
+  color: #555555;
+  cursor: pointer;
+  border-radius: 0;
+  margin: 0;
+  border-right: none;
+  height: auto;
+  min-height: 36px;
+}
+
+.custom-tab-trigger:first-child {
+  border-radius: 0;
+}
+
+.custom-tab-trigger:last-child {
+  border-right: 1px solid #adadad;
+  border-radius: 0;
+}
+
+.custom-tab-trigger:hover:not(.active) {
+  background-color: #EAEAEA;
+  color: #0549a7;
+  border-color: #999999;
+}
+
+.custom-tab-trigger.active {
+  background-color: #FFFFFF;
+  color: #0549a7;
+  font-weight: bold;
+  border-color: #adadad;
+  border-bottom: 1px solid #FFFFFF;
+  margin-bottom: -1px;
+  z-index: 1;
+}
+
+.custom-tab-trigger:focus-visible {
+  outline: 2px solid #0549a7;
+  outline-offset: -2px;
+  z-index: 2;
+}
+
+.custom-tab-trigger:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  color: #999999;
+  cursor: not-allowed;
+}
+
+.custom-tabs-content {
+  margin-top: 0;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+.custom-tab-pane {
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-tab-pane .table-container {
+  margin: 0;
+  padding: 0;
+}
+
+.custom-tabs-content .table-container table {
+  margin: 0;
+}
+
+.insert-caja-conceptos {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px
+}
+
+@media (prefers-color-scheme: dark) {
+  .custom-tab-trigger {
+    background-color: #F5F5F5;
+    color: #555555;
+    border-color: #adadad;
+  }
+  .custom-tab-trigger:last-child {
+    border-right: 1px solid #adadad;
+  }
+  .custom-tab-trigger:hover:not(.active) {
+    background-color: #EAEAEA;
+    color: #0549a7;
+    border-color: #999999;
+  }
+  .custom-tab-trigger.active {
+    background-color: #FFFFFF;
+    color: #0549a7;
+    border-color: #adadad;
+    border-bottom: 1px solid #FFFFFF;
+    margin-bottom: -1px;
+  }
+}

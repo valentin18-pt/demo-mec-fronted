@@ -1,0 +1,391 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+body, h1, h2, h3, p, input, button, label, table,.tremor-TabList, .modal, .accordion {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--gris-oscuro);
+}
+
+:root {
+  --azul-oscuro: #0549a7;
+  --azul-oscuro-hover: #043d8c;
+  --gris-oscuro: #676767;
+  --gris-plata: #ccc;
+  --gris-claro: #ececec;
+  --azul-claro: #0000e1;
+  --azul-grisaceo-claro: #ccdce4;
+  --azul-grisaceo-oscuro: #adcad7;
+  --degradado-azul-grisaceo: linear-gradient(to right, var(--azul-grisaceo-oscuro), var(--azul-grisaceo-claro));
+  --anaranjado-oscuro: #e36e15;
+  --anaranjado-claro: #ff994c;
+  --degradado-anaranjado: linear-gradient(to right, var(--anaranjado-oscuro), var(--anaranjado-claro));
+  --verde-positivo: #16a34a;
+  --rojo-negativo: #dc2626;
+  --gris-neutro: #6b7280;
+}
+
+/* Checkbox*/
+.custom-checkbox-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.custom-checkbox-label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.custom-checkbox-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  border: 1px solid var(--gris-oscuro);
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.custom-checkbox-label::after {
+  content: '';
+  position: absolute;
+  left: 5.5px;
+  top: 45%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 4px;
+  height: 8px;
+  border: solid var(--gris-oscuro);
+  border-width: 0 2px 2px 0;
+  display: none;
+}
+
+.custom-checkbox-input:checked + .custom-checkbox-label::after {
+  display: block;
+}
+
+/* Button Principal*/
+
+.boton-principal {
+  width: 30%;
+  padding: 14px 0;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--azul-oscuro);
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boton-principal:hover {
+  background-color: var(--azul-oscuro-hover);
+}
+
+.boton-principal:disabled {
+  background-color: var(--gris-plata);
+  cursor: not-allowed;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Scrollbar*/
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d1d1d1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a0a0a0;
+}
+
+* {
+    scrollbar-color: #d1d1d1 transparent;
+}
+
+/* Tablas*/
+
+table {
+    font-size: 10px;
+    width: 100%; 
+}
+
+.table-container {
+  background-color: white;
+  border-collapse: collapse;
+  overflow-x: auto;
+  width: 100%;
+  margin: 10px 0px;
+  max-height: 600px;
+  overflow-y: auto;
+  display: block;
+}
+
+.table-container table {
+  width: 100%;
+  display: table;
+}
+
+.table-container thead {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.table-container thead tr:not(:only-child) th {
+  padding: 4px 10px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.table-container thead tr {
+  display: table-row;
+}
+
+.table-container th {
+  background-color: var(--azul-oscuro);
+  color: white;
+  padding: 10px;
+  border: 1px #adadad solid;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.table-container td {
+  padding: 5px 12px;
+  border: 1px #adadad solid;
+  font-size: 10px;
+  color: #333333;
+  vertical-align: middle
+}
+
+.table-container table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+/* .table-container table tbody tr:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+} */
+
+.table-container .sin-data {
+  font-size: 10px;
+  text-align: center;
+}
+
+
+/* Estilos para montos - Colores globales */
+.monto-positivo {
+    color: var(--verde-positivo) !important;
+    font-weight: 600;
+}
+
+.monto-negativo {
+    color: var(--rojo-negativo) !important;
+    font-weight: 600;
+}
+
+.monto-neutro {
+    color: var(--gris-neutro) !important;
+    font-weight: 500;
+}
+
+/* Contenedor de acciones para tablas */
+.acciones-container {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.acciones-container .boton-actualizar,
+.acciones-container .boton-eliminar {
+  margin: 0;
+}
+
+/* Modal*/
+
+.modal-header {
+    align-items: center;
+    padding: 17px;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: var(--azul-oscuro-hover);
+    border-radius: 8px 8px 0 0;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    width: 100%;          
+    letter-spacing: 2px;
+    font-size: 18px;  
+}
+
+.modal-body {
+    padding: 15px;
+    color: #333;
+    margin: 10px;
+}
+
+.modal-body-footer {
+    overflow-y: auto;
+    max-height: calc(90vh - 150px);
+    background-color: var(--gris-claro);
+    padding-bottom: 20px;
+}
+
+.modal-body-footer label {
+    font-size: 12px;
+    color: var(--azul-oscuro);
+}
+
+.recordatorio-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal small {
+    font-size: 9px;
+    line-height: 1;
+    margin-top: -8px;
+}
+
+.modal select,
+.modal input:not([type="checkbox"]):not([type="radio"]),
+.modal textarea {
+    max-height: 30px;
+    padding: 10px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    box-sizing: border-box;
+    line-height: 1;
+    border: none;
+}
+
+.modal select:disabled,
+.modal input:not([type="checkbox"]):not([type="radio"]):disabled,
+.modal textarea:disabled {
+    background-color: #d3d4d5;
+    color: #495057;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.modal table:not(.table-container table) th,
+.modal table:not(.table-container table) td {
+    border: 2px solid var(--gris-claro);
+    text-align: left;
+    padding: 10px;
+}
+
+.modal table:not(.table-container table) th {
+    background-color: var(--azul-oscuro);
+    color: white;
+}
+
+.modal table:not(.table-container table) td {
+    background-color: var(--gris-plata);
+    color: black;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.modal button {
+  font-size: 12px;
+  background-color: var(--azul-oscuro);
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+.modal button:disabled {
+    background-color: #d3d3d3;
+    color: #a0a0a0;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Acordeón*/
+
+.accordion {
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;      
+  margin-bottom: 0.5rem;    
+}
+
+
+.accordion-header {
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+  background-color: #e5e7ebba;
+  justify-content: space-between;
+}
+
+.accordion-header:hover {
+  background-color: #d1d5db;
+}
+
+.accordion-header-nombre {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  text-align: left;
+  display: block;
+}
+
+.accordion-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.table {
+    width: 100%;
+}
+
+.boton-guardar {
+  background-color: #2563eb;
+  color: white;
+  font-weight: bold;
+  padding: 8px 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 10px 0px;
+}
+
+.boton-guardar:hover {
+  background-color: #1e40af;
+}
+
+.boton-guardar:disabled {
+  background-color: #6b7280;
+  cursor: not-allowed;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

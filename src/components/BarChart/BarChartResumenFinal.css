@@ -1,0 +1,71 @@
+.resumenfinal-tooltip {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    min-width: 160px;
+}
+
+
+.resumenfinal-tooltip-divider {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 8px;
+}
+
+.resumenfinal-tooltip-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.resumenfinal-tooltip-item:last-child {
+    margin-bottom: 0;
+}
+
+.resumenfinal-tooltip-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.resumenfinal-tooltip-color-box {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.resumenfinal-tooltip-value {
+    font-weight: 600;
+    margin-left: 12px;
+}
+
+.resumenfinal-legend-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.resumenfinal-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 12px;
+}
+
+.resumenfinal-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.resumenfinal-legend-color-box {
+    width: 12px;
+    height: 12px;
+}
+
+.chart-title-resumenfinal {
+    text-align: center; 
+}

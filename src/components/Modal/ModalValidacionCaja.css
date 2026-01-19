@@ -1,0 +1,51 @@
+.modal-body {
+    padding: 0;
+}
+
+.tabla-validacion {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; 
+}
+
+.tabla-validacion .col-descripcion {
+    width: 45%; 
+}
+
+.tabla-validacion .col-error {
+    width: 80px; 
+    text-align: center;
+}
+
+.tabla-validacion .col-comentario {
+    width: 100%; 
+}
+
+.celda-comentario .comentario-input {
+    width: 100%;
+    box-sizing: border-box; 
+    margin: 0;
+    background-color: #d3d3d3;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s ease;
+}
+
+.celda-comentario .comentario-input:not(.disabled) {
+    background-color: #ffffff;
+    border: 1px solid #007bff;
+}
+
+.celda-comentario .comentario-input.disabled {
+    background-color: #e4dede;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.celda-error {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.tabla-validacion tbody .fila-datos:hover {
+ background-color: #e4dede; 
+}

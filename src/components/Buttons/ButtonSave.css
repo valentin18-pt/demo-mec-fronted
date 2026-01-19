@@ -1,0 +1,23 @@
+.boton-guardar {
+  background-color: #2c9c47; 
+  color: #f0e7e7;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  width: 35px; 
+  height: 35px;
+}
+
+.boton-guardar:hover {
+  background-color: #288a3e; 
+}
+
+.boton-guardar svg {
+  width: 16px;
+  height: 16px;
+}

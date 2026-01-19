@@ -1,0 +1,140 @@
+.rojo {
+    background-color: red;
+}
+
+.amarillo {
+    background-color: yellow;
+}
+
+.verde {
+    background-color: green;
+}
+
+.gris {
+    background-color: gray;
+}
+
+.seccion-reporte {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 30px;
+}
+
+.seccion-reporte h2 {
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+.chart-container {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.tablas {
+    width: 100%;
+}
+
+.tabla-grafico-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.tabla-container {
+    flex: 1;
+}
+
+.table.reportes th {
+    text-align: center;
+}
+
+.table.reportes td {
+    text-align: right;
+}
+
+.table.reportes td:first-child {
+    text-align: left;
+}
+
+.table.reportes tr.total-row td:nth-child(10) {
+    text-align: right;
+}
+
+.table.reportes th:nth-child(5),
+.table.reportes td:nth-child(5),
+.table.reportes th:nth-child(8),
+.table.reportes td:nth-child(8) {
+    text-align: center;
+}
+
+.table.reportes td:nth-child(9) {
+    text-align: unset;
+}
+
+.table.reportes td:nth-child(9) > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem;
+}
+
+.table.reportes tr.total-row td:nth-child(10) {
+    text-align: right;
+}
+
+.chart-container {
+    flex: 0 0 400px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.campo-fecha,
+.campo-supervisor,
+.campo-produccion {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.tabla-container {
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto;
+}
+
+.progress-cell {
+    position: relative;
+    padding: 0 !important;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.progress-bar-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1;
+    transition: width 0.3s ease-in-out;
+}
+
+.progress-content {
+    position: relative;
+    z-index: 2;
+    padding: 0.5rem;
+    display: block;
+}
+
+.progress-bar-green {
+    background: linear-gradient(to right, #3eb85d, #ffffff);
+}
+
+.progress-bar-orange {
+    background: linear-gradient(to right, #ffe77a, #ffffff);
+}
