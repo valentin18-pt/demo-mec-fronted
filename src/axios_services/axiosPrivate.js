@@ -1,12 +1,12 @@
 import axios from "axios";
-import { API_URL_BASE } from "./apiConfig";
+import API_URL_BASE from "./apiConfig";
 
 const axiosPrivate = axios.create({
   baseURL: API_URL_BASE,
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
-    'Accept': 'application/json'
+    'Accept': 'application/json',
   }
 });
 

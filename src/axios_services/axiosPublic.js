@@ -1,24 +1,31 @@
 import axios from "axios";
-import { API_URL_BASE, API_URL_SANCTUM } from "./apiConfig";
+import API_URL_BASE, { API_BASE_URL } from "./apiConfig";
 
 const axiosPublic = axios.create({
   baseURL: API_URL_BASE,
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
-    'Accept': 'application/json'
+    'Accept': 'application/json',
   }
 });
 
-export const getCsrfToken = async () => {
-  try {
-    await axios.get(`${API_URL_SANCTUM}/sanctum/csrf-cookie`, {
-      withCredentials: true
-    });
-  } catch (error) {
-    console.error('Error obteniendo CSRF token:', error);
-    throw error;
+axiosPublic.interceptors.request.use(
+  async (config) => {
+    if (!document.cookie.includes('XSRF-TOKEN')) {
+      try {
+        await axios.get(`${API_BASE_URL}/sanctum/csrf-cookie`, {
+          withCredentials: true
+        });
+      } catch (error) {
+        console.error('Error obteniendo CSRF token:', error);
+      }
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
   }
-};
+);
 
 export default axiosPublic;

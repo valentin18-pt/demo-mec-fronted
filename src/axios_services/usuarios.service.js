@@ -1,9 +1,7 @@
-import axiosPublic, { getCsrfToken } from "./axiosPublic";
+import axiosPublic from "./axiosPublic";
 import axiosPrivate from "./axiosPrivate";
 
-const login = async (codigo_usuario, password) => {
-  await getCsrfToken();
-  
+const login = (codigo_usuario, password) => {
   return axiosPublic.post("login", { codigo_usuario, password })
     .then(res => res.data);
 };
