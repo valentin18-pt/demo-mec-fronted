@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo, useCallback, useContext} from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback, useContext } from 'react';
 import { Maximize } from 'lucide-react';
 import { AppContext } from '../application/provider';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
@@ -37,13 +37,13 @@ const CustomTooltip = ({ payload, active, valueFormatter }) => {
 
 const AvanceSemestralTooltip = ({ payload, active }) => {
     if (!active || !payload || payload.length === 0) return null;
-    
+
     const data = payload[0].payload;
     const { name, value, type, monthly_goal } = data;
 
     if (type === 'advance') {
         return (
-            <div className="tooltip-custom">
+            <div className="tooltip-custom text-xs">
                 <p className="tooltip-title">{name}</p>
                 <p><strong>Avance:</strong> {formatCurrency(value)}</p>
                 <p><strong>Meta del Mes:</strong> {formatCurrency(monthly_goal)}</p>
@@ -52,7 +52,7 @@ const AvanceSemestralTooltip = ({ payload, active }) => {
     }
 
     return (
-        <div className="tooltip-custom">
+        <div className="tooltip-custom text-xs">
             <p className="tooltip-title">{name}</p>
             <p className="tooltip-value">{formatCurrency(value)}</p>
         </div>
@@ -88,7 +88,7 @@ const GraficoDashboard = () => {
     const [desembolsoDetalleData, setDesembolsoDetalleData] = useState(null);
     const [mapaSummaryData, setMapaSummaryData] = useState(null);
     const [geojson, setGeojson] = useState(null);
-    
+
     const [avanceError, setAvanceError] = useState(null);
     const [desembolsoError, setDesembolsoError] = useState(null);
     const [mapaError, setMapaError] = useState(null);
@@ -96,7 +96,7 @@ const GraficoDashboard = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [mapaDataType, setMapaDataType] = useState('validated');
     const [desembolsoDataType, setDesembolsoDataType] = useState('validated');
-    
+
     const fetchMapData = useCallback(async (filters) => {
         setMapaError(null);
         try {
@@ -167,7 +167,7 @@ const GraficoDashboard = () => {
                 console.error('Error loading avances:', err);
                 setAvanceError('Error inesperado en Avance de Metas.');
             }
-            
+
             await fetchMapData({ summary_type: 'validated' });
             await fetchDesembolsoDetalleData({ summary_type: 'validated' });
 
@@ -179,82 +179,62 @@ const GraficoDashboard = () => {
 
     const avanceSemestralPreview = useMemo(() => {
         if (!avanceSemestralData) return null;
-    
-        const { semestral_goal, monthly_details } = avanceSemestralData;
+
+        const { monthly_details } = avanceSemestralData;
         const chartData = [];
         const colors = [];
-        
-        const ADVANCE_COLORS = ['green', 'blue', 'cyan', 'indigo', 'fuchsia', 'amber'];
-        const GOAL_COLOR = 'red';
+
+        const ADVANCE_COLOR = 'blue';
         const REMAINING_COLOR = 'slate';
-    
-        let totalAdvance = 0;
-        let colorIndex = 0;
 
         const currentDate = new Date();
-        const currentMonth = currentDate.getMonth() + 1;
+        const currentMonthIndex = currentDate.getMonth();
+        const monthNames = [
+            'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+        ];
+        const currentMonthName = monthNames[currentMonthIndex];
 
-        const monthNameToNumber = {
-            'Enero': 1, 'Febrero': 2, 'Marzo': 3, 'Abril': 4, 'Mayo': 5, 'Junio': 6,
-            'Julio': 7, 'Agosto': 8, 'Septiembre': 9, 'Octubre': 10, 'Noviembre': 11, 'Diciembre': 12
+        const currentMonthData = monthly_details.find(m => m.month_name === currentMonthName);
+
+        if (!currentMonthData) return null;
+
+        const advance = currentMonthData.advance_amount || 0;
+        const goal = currentMonthData.monthly_goal || 0;
+        const remaining = Math.max(0, goal - advance);
+
+        chartData.push({
+            name: 'Avance',
+            value: advance
+        });
+        colors.push(ADVANCE_COLOR);
+
+        chartData.push({
+            name: 'Restante',
+            value: remaining
+        });
+        colors.push(REMAINING_COLOR);
+
+        const percentage = goal > 0 ? ((advance / goal) * 100).toFixed(1) : "0";
+        const formattedGoal = formatCurrency(goal);
+        const formattedAdvance = formatCurrency(advance);
+
+        return {
+            chartData,
+            colors,
+            percentage,
+            period: currentMonthName.toUpperCase(),
+            formattedGoal,
+            formattedAdvance
         };
-    
-        const activeMonths = monthly_details.filter(m => m.monthly_goal > 0);
-    
-        activeMonths.forEach(month => {
-            if (month.advance_amount > 0) {
-                chartData.push({
-                    name: month.month_name,
-                    value: month.advance_amount,
-                    type: 'advance',
-                    monthly_goal: month.monthly_goal
-                });
-                colors.push(ADVANCE_COLORS[colorIndex % ADVANCE_COLORS.length]);
-                colorIndex++;
-            }
-            totalAdvance += month.advance_amount;
-        });
-    
-        let totalActiveMonthlyGoalsUntilCurrent = 0;
-        activeMonths.forEach(month => {
-            const monthNumber = monthNameToNumber[month.month_name];
-                if (monthNumber && monthNumber <= currentMonth) {
-                totalActiveMonthlyGoalsUntilCurrent += month.monthly_goal;
-            }
-        });
-
-        const remainingActiveGoal = totalActiveMonthlyGoalsUntilCurrent - totalAdvance;
-        if (remainingActiveGoal > 0) {
-            chartData.push({
-                name: 'Meta por alcanzar',
-                value: remainingActiveGoal,
-                type: 'goal'
-            });
-            colors.push(GOAL_COLOR);
-        }
-    
-        const remainingSemesterGoal = semestral_goal - totalAdvance;
-        if (remainingSemesterGoal > 0) {
-            chartData.push({
-                name: 'Meta Semestral Restante',
-                value: remainingSemesterGoal,
-                type: 'remaining'
-            });
-            colors.push(REMAINING_COLOR);
-        }
-    
-        const percentage = semestral_goal > 0 ? ((totalAdvance / semestral_goal) * 100).toFixed(1) : "0";
-        const formattedGoal = formatCurrency(semestral_goal);
-    
-        return { chartData, colors, percentage, period: avanceSemestralData.period, formattedGoal };
     }, [avanceSemestralData]);
 
     const desembolsoPreviewData = useMemo(() => {
         if (!desembolsoDetalleData || desembolsoDetalleData.length === 0) return null;
-        
+
         const currentYear = new Date().getFullYear();
         const monthNames = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
-        
+
         const monthlyData = desembolsoDetalleData
             .filter(item => item.year === currentYear)
             .reduce((acc, item) => {
@@ -271,10 +251,10 @@ const GraficoDashboard = () => {
             'Mes': monthName,
             'Monto Desembolsado': monthlyData[monthName] || 0
         }));
-        
+
         return { chartData };
     }, [desembolsoDetalleData]);
-    
+
     const mapaPreviewData = useMemo(() => {
         if (!mapaSummaryData) return { regionColors: new Map(), hasData: false };
         const colores = ['#60A5FA', '#34D399', '#FCD34D', '#A78BFA', '#F87171'];
@@ -291,9 +271,35 @@ const GraficoDashboard = () => {
     const handleCloseExpandedChart = useCallback(() => setExpandedChart(null), []);
 
     if (expandedChart) {
+        const getCurrentMonthData = () => {
+            if (!avanceSemestralData) return null;
+            const { monthly_details, source } = avanceSemestralData;
+            const currentDate = new Date();
+            const monthNames = [
+                'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+            ];
+            const currentMonthName = monthNames[currentDate.getMonth()];
+            const currentMonthData = monthly_details.find(m => m.month_name === currentMonthName);
+
+            if (!currentMonthData) return null;
+
+            return {
+                total_amount: currentMonthData.advance_amount || 0,
+                goal: currentMonthData.monthly_goal || 0,
+                source: source
+            };
+        };
+
         return (
             <div className="grafico-dashboard-expanded">
-                {expandedChart === 'avance' && <GraficoAvance isExpanded={true} onClose={handleCloseExpandedChart} />}
+                {expandedChart === 'avance' && (
+                    <GraficoAvance
+                        isExpanded={true}
+                        onClose={handleCloseExpandedChart}
+                        initialData={getCurrentMonthData()}
+                    />
+                )}
                 {expandedChart === 'desembolso' && (
                     <GraficoDesembolsos
                         isExpanded={true}
@@ -315,92 +321,92 @@ const GraficoDashboard = () => {
             </div>
         );
     }
-    
+
     return (
         <>
-        {isLoading && (
-            <div>
-                <Loader />
-            </div>
-        )}
-        <h1>DASHBOARD GERENCIAL</h1>
-        <div className="grafico-dashboard-container">
-            <div className="dashboard-grid" style={{ opacity: isLoading ? 0.3 : 1 }}>
-                <div className="dashboard-column">
-                <ChartPreviewCard title="DESEMBOLSOS" onExpand={handleExpandChart} chartName="desembolso">
-                    {desembolsoError ? (
-                        <ErrorMessage message={desembolsoError} />
-                    ) : desembolsoPreviewData && desembolsoPreviewData.chartData.length > 0 ? (
-                        <BarChart
-                            data={desembolsoPreviewData.chartData}
-                            index="Mes"
-                            categories={['Monto Desembolsado']}
-                            colors={['indigo']}
-                            showYAxis={false}
-                            showLegend={false}
-                            valueFormatter={formatCurrency}
-                            customTooltip={(props) => <CustomTooltip {...props} valueFormatter={formatCurrency} />}
-                            className="h-full w-full"
-                        />
-                    ) : (
-                        <Text className="no-data-text">NO HAY DATOS DE DESEMBOLSOS</Text>
-                    )}
-                </ChartPreviewCard>
-                {Number(state.user?.perfil_id) !== 20 && (<ChartPreviewCard title={`AVANCE DE METAS`} onExpand={handleExpandChart} chartName="avance">
-                    {avanceError ? (
-                        <ErrorMessage message={avanceError} />
-                    ) : avanceSemestralPreview ? (
-                        <div className="avance-donut-chart-container">
-                            <DonutChart
-                                data={avanceSemestralPreview.chartData}
-                                category="value"
-                                index="name"
-                                variant="donut"
-                                colors={avanceSemestralPreview.colors}
-                                customTooltip={AvanceSemestralTooltip}
-                                showLabel={false}
-                                className="h-full w-full"
-                            />
-                            <div className="donut-chart-info">
-                                <Metric className="donut-chart-percentage">{avanceSemestralPreview.percentage}%</Metric>
-                                <Text className="donut-chart-label">DE LA META SEMESTRAL</Text>
-                                <Text className="donut-chart-goal font-semibold text-slate-700 mt-1">
-                                    {avanceSemestralPreview.formattedGoal}
-                                </Text>
-                            </div>
-                        </div>
-                    ) : (
-                        <Text className="no-data-text">NO HAY DATOS DE AVANCE</Text>
-                    )}
-                </ChartPreviewCard>)}</div>
+            {isLoading && (
+                <div>
+                    <Loader />
+                </div>
+            )}
+            <h1>DASHBOARD GERENCIAL</h1>
+            <div className="grafico-dashboard-container">
+                <div className="dashboard-grid" style={{ opacity: isLoading ? 0.3 : 1 }}>
+                    <div className="dashboard-column">
+                        <ChartPreviewCard title="DESEMBOLSOS" onExpand={handleExpandChart} chartName="desembolso">
+                            {desembolsoError ? (
+                                <ErrorMessage message={desembolsoError} />
+                            ) : desembolsoPreviewData && desembolsoPreviewData.chartData.length > 0 ? (
+                                <BarChart
+                                    data={desembolsoPreviewData.chartData}
+                                    index="Mes"
+                                    categories={['Monto Desembolsado']}
+                                    colors={['indigo']}
+                                    showYAxis={false}
+                                    showLegend={false}
+                                    valueFormatter={formatCurrency}
+                                    customTooltip={(props) => <CustomTooltip {...props} valueFormatter={formatCurrency} />}
+                                    className="h-full w-full"
+                                />
+                            ) : (
+                                <Text className="no-data-text">NO HAY DATOS DE DESEMBOLSOS</Text>
+                            )}
+                        </ChartPreviewCard>
+                        {Number(state.user?.perfil_id) !== 20 && (<ChartPreviewCard title={`AVANCE DE METAS`} onExpand={handleExpandChart} chartName="avance">
+                            {avanceError ? (
+                                <ErrorMessage message={avanceError} />
+                            ) : avanceSemestralPreview ? (
+                                <div className="avance-donut-chart-container">
+                                    <DonutChart
+                                        data={avanceSemestralPreview.chartData}
+                                        category="value"
+                                        index="name"
+                                        variant="donut"
+                                        colors={avanceSemestralPreview.colors}
+                                        customTooltip={AvanceSemestralTooltip}
+                                        showLabel={false}
+                                        className="h-full w-full"
+                                    />
+                                    <div className="donut-chart-info">
+                                        <Metric className="donut-chart-percentage">{avanceSemestralPreview.percentage}%</Metric>
+                                        <Text className="donut-chart-label">DE LA META {avanceSemestralPreview.period}</Text>
+                                        <Text className="donut-chart-goal font-semibold text-slate-700 mt-1">
+                                            {avanceSemestralPreview.formattedGoal}
+                                        </Text>
+                                    </div>
+                                </div>
+                            ) : (
+                                <Text className="no-data-text">NO HAY DATOS DE AVANCE</Text>
+                            )}
+                        </ChartPreviewCard>)}</div>
 
-                <div className="dashboard-map-card-wrapper">
-                    <ChartPreviewCard title="MAPA DE DESEMBOLSOS" onExpand={handleExpandChart} chartName="mapa">
-                        {mapaError ? (
-                            <ErrorMessage message={mapaError} />
-                        ) : (geojson && mapaPreviewData.hasData) ? (
-                            <ComposableMap
-                                projection="geoMercator"
-                                projectionConfig={{ scale: 2000, center: [-75, -9.5] }}
-                                className="map-chart"
-                            >
-                                <Geographies geography={geojson}>
-                                    {({ geographies }) => geographies.map(geo => {
-                                        const regionName = normalizeGeoName(geo.properties.NOMBDEP);
-                                        const color = mapaPreviewData.regionColors.get(regionName) || '#E5E7EB';
-                                        return <Geography key={geo.rsmKey} geography={geo} fill={color} stroke="#FFF" strokeWidth={0.5} className="map-geography" />;
-                                    })}
-                                </Geographies>
-                            </ComposableMap>
-                        ) : geojson && !mapaPreviewData.hasData ? (
-                            <Text className="no-data-text">NO HAY DATOS PARA EL MAPA</Text>
-                        ) : (
-                            <Text className="loading-map-text">CARGANDO MAPA...</Text>
-                        )}
-                    </ChartPreviewCard>
+                    <div className="dashboard-map-card-wrapper">
+                        <ChartPreviewCard title="MAPA DE DESEMBOLSOS" onExpand={handleExpandChart} chartName="mapa">
+                            {mapaError ? (
+                                <ErrorMessage message={mapaError} />
+                            ) : (geojson && mapaPreviewData.hasData) ? (
+                                <ComposableMap
+                                    projection="geoMercator"
+                                    projectionConfig={{ scale: 2000, center: [-75, -9.5] }}
+                                    className="map-chart"
+                                >
+                                    <Geographies geography={geojson}>
+                                        {({ geographies }) => geographies.map(geo => {
+                                            const regionName = normalizeGeoName(geo.properties.NOMBDEP);
+                                            const color = mapaPreviewData.regionColors.get(regionName) || '#E5E7EB';
+                                            return <Geography key={geo.rsmKey} geography={geo} fill={color} stroke="#FFF" strokeWidth={0.5} className="map-geography" />;
+                                        })}
+                                    </Geographies>
+                                </ComposableMap>
+                            ) : geojson && !mapaPreviewData.hasData ? (
+                                <Text className="no-data-text">NO HAY DATOS PARA EL MAPA</Text>
+                            ) : (
+                                <Text className="loading-map-text">CARGANDO MAPA...</Text>
+                            )}
+                        </ChartPreviewCard>
+                    </div>
                 </div>
             </div>
-        </div>
         </>
     );
 };
